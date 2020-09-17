@@ -1,23 +1,13 @@
 import { OBJECT_TYPE, DIRECTIONS } from "./setup";
+import Character from "./Character";
 
-class Pacman {
+class Pacman extends Character {
   constructor(speed, startPos) {
-    this.pos = startPos;
-    this.speed = speed;
+    super(speed, startPos);
+
     this.dir = null;
-    this.timer = 0;
     this.powerPill = false;
     this.rotation = true;
-  }
-
-  shouldMove() {
-    if (!this.dir) return false;
-
-    if (this.timer === this.speed) {
-      this.timer = 0;
-      return true;
-    }
-    this.timer++;
   }
 
   getNextMove(objectExists) {
